@@ -1,12 +1,13 @@
 // app/unmei-seikan/page.tsx
-import { Metadata } from 'next';
+export const dynamic = 'force-dynamic';
+
 import { getRandomFortune } from '@/lib/cosmic_ring_of_fate';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '運命星環（うんめいせいかん）',
   description: '星の輪が導く、選ばれし一日の軌跡──中二病占い',
 };
-
 
 export default function UnmeiSeikanPage() {
   const fortune = getRandomFortune();
