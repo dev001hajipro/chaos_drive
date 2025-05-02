@@ -45,9 +45,9 @@ export default function Page() {
       <button
         onClick={handleSummon}
         disabled={isPending}
-        className="mb-6 bg-gradient-to-br from-purple-700 to-purple-900 text-white text-xl py-3 px-8 rounded-lg shadow-lg hover:scale-110 transform transition-all duration-300 hover:shadow-purple-500/50 disabled:opacity-50"
+        className="mt-6 bg-gradient-to-br from-indigo-700 to-purple-900 text-indigo-200 text-lg py-2 px-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300 hover:shadow-indigo-500/50"
       >
-        {isPending ? '詠唱中…' : '詠唱する 🪄🕯️💀'}
+        {isPending ? '詠唱中…' : '🪄 詠唱する'}
       </button>
 
       {audioSrc && (
@@ -68,6 +68,22 @@ export default function Page() {
         className="mt-6 bg-gradient-to-br from-indigo-700 to-purple-900 text-indigo-200 text-lg py-2 px-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300 hover:shadow-indigo-500/50"
       >
         🌀 禁忌の魔印へ転移（中二病に使えそうな絵文字）
+      </Link>
+
+      {/* フォーチュンボタン */}
+      <Link
+        href="/fortune"
+        className="mt-6 bg-gradient-to-br from-indigo-700 to-purple-900 text-indigo-200 text-lg py-2 px-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300 hover:shadow-indigo-500/50"
+      >
+        🔮 運命星環（うんめいせいかん）を占う
+      </Link>
+
+      {/* 闇の創世記ボタン */}
+      <Link
+        href="/lore"
+        className="mt-6 bg-gradient-to-br from-indigo-700 to-purple-900 text-indigo-200 text-lg py-2 px-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300 hover:shadow-indigo-500/50"
+      >
+        🧙‍♀️ 創造者たちの記録（開発者一覧）
       </Link>
     </main>
   );
