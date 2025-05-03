@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Kiwi_Maru, MedievalSharp } from 'next/font/google';
+import NavBar from '@/components/Navibar'
 import './globals.css';
 
 const medievalSharp = MedievalSharp({
@@ -31,9 +32,12 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${medievalSharp.variable} ${kiwiMaru.variable} antialiased`}
+        className={`${medievalSharp.variable} ${kiwiMaru.variable} antialiased bg-black text-purple-200`}
       >
-        {children}
+        <NavBar />
+        <main className="container mx-auto px-4 py-8 min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   );

@@ -1,6 +1,5 @@
 'use client';
 import { generateHaiku } from '@/app/action';
-import Link from 'next/link';
 import { useState, useTransition } from 'react';
 
 export default function Page() {
@@ -61,30 +60,6 @@ export default function Page() {
           Your browser does not support the audio element.
         </audio>
       )}
-
-      {/* カオス絵文字召喚ボタン */}
-      <Link
-        href="/chaos-emojis"
-        className="mt-6 bg-gradient-to-br from-indigo-700 to-purple-900 text-indigo-200 text-lg py-2 px-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300 hover:shadow-indigo-500/50"
-      >
-        🌀 禁忌の魔印へ転移（中二病に使えそうな絵文字）
-      </Link>
-
-      {/* フォーチュンボタン */}
-      <Link
-        href="/fortune"
-        className="mt-6 bg-gradient-to-br from-indigo-700 to-purple-900 text-indigo-200 text-lg py-2 px-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300 hover:shadow-indigo-500/50"
-      >
-        🔮 運命星環（うんめいせいかん）を占う
-      </Link>
-
-      {/* 闇の創世記ボタン */}
-      <Link
-        href="/lore"
-        className="mt-6 bg-gradient-to-br from-indigo-700 to-purple-900 text-indigo-200 text-lg py-2 px-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300 hover:shadow-indigo-500/50"
-      >
-        🧙‍♀️ 創造者たちの記録（開発者一覧）
-      </Link>
     </main>
   );
 }
