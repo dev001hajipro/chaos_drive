@@ -1,10 +1,13 @@
 'use client';
 
+import { IMPLEMENTED_FEATURES } from '@/lib/chaosFeatures';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 export default function Navibar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="bg-purple-900 text-white shadow-md">
@@ -20,63 +23,46 @@ export default function Navibar() {
           ☰
         </button>
         <nav className="hidden md:flex space-x-6 text-lg font-semibold">
-          <Link
-            href="/"
-            className="hover:underline hover:text-yellow-300 transition"
-          >
-            ホーム
-          </Link>
-          <Link
-            href="/chaos-emojis"
-            className="hover:underline hover:text-yellow-300 transition"
-          >
-            絵文字一覧
-          </Link>
-          <Link
-            href="/fortune"
-            className="hover:underline hover:text-yellow-300 transition"
-          >
-            占い
-          </Link>
-          <Link
-            href="/lore"
-            className="hover:underline hover:text-yellow-300 transition"
-          >
-            紹介ページ
-          </Link>
+          {IMPLEMENTED_FEATURES.map((feature) => {
+            const isActive = pathname === feature.path;
+            return (
+              <Link
+                key={feature.path}
+                href={feature.path}
+                className={`flex items-center space-x-1 transition ${
+                  isActive
+                    ? 'text-yellow-300 underline underline-offset-4'
+                    : 'hover:text-yellow-300'
+                }`}
+              >
+                <span>{feature.icon}</span>
+                <span>{feature.name}</span>
+              </Link>
+            );
+          })}
         </nav>
       </div>
       {menuOpen && (
         <div className="md:hidden bg-purple-800 border-t border-purple-700">
           <nav className="flex flex-col space-y-2 p-4 text-lg font-semibold">
-            <Link
-              href="/"
-              className="hover:underline hover:text-yellow-300 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              ホーム
-            </Link>
-            <Link
-              href="/chaos-emojis"
-              className="hover:underline hover:text-yellow-300 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              絵文字一覧
-            </Link>
-            <Link
-              href="/fortune"
-              className="hover:underline hover:text-yellow-300 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              占い
-            </Link>
-            <Link
-              href="/lore"
-              className="hover:underline hover:text-yellow-300 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              紹介ページ
-            </Link>
+            {IMPLEMENTED_FEATURES.map((feature) => {
+              const isActive = pathname === feature.path;
+              return (
+                <Link
+                  key={feature.path}
+                  href={feature.path}
+                  className={`flex items-center space-x-2 transition ${
+                    isActive
+                      ? 'text-yellow-300 underline underline-offset-4'
+                      : 'hover:text-yellow-300'
+                  }`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <span>{feature.icon}</span>
+                  <span>{feature.name}</span>
+                </Link>
+              );
+            })}
           </nav>
         </div>
       )}

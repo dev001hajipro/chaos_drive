@@ -1,4 +1,6 @@
 'use client';
+import { getChaosFeatureByKey, ChaosFeatureKey } from '@/lib/chaosFeatures';
+
 import { generateHaiku } from '@/app/action';
 import { useState, useTransition } from 'react';
 
@@ -26,10 +28,12 @@ export default function Page() {
     });
   };
 
+  const feature = getChaosFeatureByKey(ChaosFeatureKey.HAIKU);
+
   return (
     <main className="min-h-screen flex flex-col justify-center items-center bg-black text-purple-300">
       <h1 className="text-4xl md:text-6xl font-bold mb-8 text-center drop-shadow-[0_0_10px_rgba(153,0,255,0.7)]">
-        CHAOS HAIKU召喚機
+      {feature?.icon} {feature?.name}
       </h1>
 
       <h2 className="text-xl md:text-2xl text-center mb-8 drop-shadow-[0_0_5px_rgba(255,0,255,0.6)] leading-relaxed">

@@ -1,16 +1,26 @@
 import { emojis } from '@/lib/chaos-emojis';
+import { ChaosFeatureKey, getChaosFeatureByKey } from '@/lib/chaosFeatures';
+
+const feature = getChaosFeatureByKey(ChaosFeatureKey.EMOJI);
 
 export const metadata = {
-  title: '🌀禁忌の魔印カタログ',
-  description: '封印されたカオス絵文字たちを解き放て──魔力を高め、召喚せよ！',
+  title: feature?.name,
+  description: feature?.description,
 };
 
 export default function ChaosEmojisPage() {
   return (
     <main className="min-h-screen bg-black text-purple-300 p-8">
       <h1 className="text-4xl font-bold text-center mb-12 drop-shadow-[0_0_10px_rgba(153,0,255,0.7)]">
-        禁忌の魔印（中二病に使えそうな絵文字）
+        {feature?.icon} {feature?.name}
       </h1>
+      
+      <p className="text-lg text-center mb-8">
+        {feature?.description}
+        <br />
+        <span className="text-pink-400">封印されたカオス絵文字たちを解き放て──</span>
+        <br />
+      </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {emojis.map((emoji) => (

@@ -1,8 +1,12 @@
+import { ChaosFeatureKey, getChaosFeatureByKey } from '@/lib/chaosFeatures';
+
 export default function LorePage() {
+  const feature = getChaosFeatureByKey(ChaosFeatureKey.ABOUT);
+
   return (
     <main className="min-h-screen bg-black text-purple-300 p-10 flex flex-col items-center">
       <h1 className="text-5xl font-bold mb-6 text-center drop-shadow-[0_0_10px_rgba(153,0,255,0.7)]">
-        🧙‍♀️ 創造者たちの記録（開発者一覧）
+        {feature?.icon} {feature?.name}
       </h1>
 
       <section className="max-w-3xl text-lg leading-relaxed space-y-6">
@@ -12,6 +16,10 @@ export default function LorePage() {
           <span className="text-indigo-400">C'th Levia†Van Arcana IX</span>{' '}
           によって 開かれし禁断の詠唱ゲートである。
         </p>
+
+        <h2 className="text-3xl font-bold text-purple-200">
+          🧙‍♀️開発者たちの紹介
+        </h2>
 
         <p>
           dev001hajipro──現世の技術を操る者。

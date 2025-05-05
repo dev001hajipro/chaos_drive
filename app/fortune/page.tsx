@@ -1,4 +1,4 @@
-// app/unmei-seikan/page.tsx
+// app/fortune/page.tsx
 export const dynamic = 'force-dynamic';
 
 import { getRandomFortune } from '@/lib/cosmic_ring_of_fate';
